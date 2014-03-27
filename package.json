@@ -1,6 +1,6 @@
 {
   "name": "gulp-baseimg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Convert images to dataUri-stylesheet",
   "author": {
     "name": "Alexander Lunyov",
