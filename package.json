@@ -13,7 +13,14 @@
     "css",
     "image"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Sunify/gulp-baseimg.git"
+  },
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/Sunify/gulp-baseimg/issues"
+  }
 }
