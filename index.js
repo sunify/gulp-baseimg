@@ -25,7 +25,8 @@ module.exports = function(opts) {
     this.emit('data', new gutil.File({
       contents: new Buffer(mustache.render(tpl, {
         items: buffer
-      }))
+      })),
+      path: opts.styleName
     }));
   };
 
