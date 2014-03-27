@@ -11,7 +11,6 @@ npm install gulp-baseimg --save-dev
 ###Example config
 ```javascript
 gulp.task('imgBase', function() {
-    "use strict";
     gulp.src('./images/data/*.png')
         .pipe(baseimg({
             styleTemplate: 'scss/data_gen.scss.mustache',
