@@ -1,0 +1,19 @@
+{
+  "name": "gulp-baseimg",
+  "version": "0.0.1",
+  "description": "Convert images to dataUri-stylesheet",
+  "author": {
+    "name": "Alexander Lunyov",
+    "email": "isuntc@gmail.com",
+    "url": "http://alexanderlunyov.ru"
+  },
+  "keywords": [
+    "gulpplugin",
+    "base64",
+    "css",
+    "image"
+  ],
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {}
+}
