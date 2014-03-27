@@ -1,39 +1,39 @@
 {
-    "name": "gulp-baseimg",
-    "version": "0.0.1",
-    "description": "Convert images to dataUri-stylesheet",
-    "author": {
-        "name": "Alexander Lunyov",
-        "email": "isuntc@gmail.com",
-        "url": "http://alexanderlunyov.ru"
-    },
-    "keywords": [
-        "gulpplugin",
-        "base64",
-        "css",
-        "image"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:Sunify/gulp-baseimg.git"
-    },
-    "scripts": {
-        "test": "mocha"
-    },
-    "main": "index.js",
-    "dependencies": {
-        "gulp-util": "~2.2.14",
-        "mustache": "~0.8.1",
-        "through": "~2.3.4",
-        "imagesize": "~1.0.0",
-        "mime": "~1.2.11"
-    },
-    "devDependencies": {
-        "mocha": "~1.18.2",
-        "should": "~3.2.0-beta1",
-        "postcss": "~0.3.4"
-    },
-    "bugs": {
-        "url": "https://github.com/Sunify/gulp-baseimg/issues"
-    }
+  "name": "gulp-baseimg",
+  "version": "0.0.2",
+  "description": "Convert images to dataUri-stylesheet",
+  "author": {
+    "name": "Alexander Lunyov",
+    "email": "isuntc@gmail.com",
+    "url": "http://alexanderlunyov.ru"
+  },
+  "keywords": [
+    "gulpplugin",
+    "base64",
+    "css",
+    "image"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Sunify/gulp-baseimg.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "gulp-util": "~2.2.14",
+    "mustache": "~0.8.1",
+    "through": "~2.3.4",
+    "imagesize": "~1.0.0",
+    "mime": "~1.2.11"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "should": "~3.2.0-beta1",
+    "postcss": "~0.3.4"
+  },
+  "bugs": {
+    "url": "https://github.com/Sunify/gulp-baseimg/issues"
+  }
 }
