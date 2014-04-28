@@ -29,11 +29,12 @@ module.exports = function(opts) {
 
     var endStream = function() {
         this.emit('data', new gutil.File({
-            contents: new Buffer(mustache.render(tpl, {
-                items: buffer
-            }), 'utf8'),
-            path: opts.styleName
-        }));
+              contents: new Buffer(mustache.render(tpl, {
+                  items: buffer
+              }), 'utf8'),
+              path: opts.styleName
+          }));
+        this.emit('end');
     };
 
     return new through(bufferContents, endStream);
