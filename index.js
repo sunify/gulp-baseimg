@@ -35,7 +35,7 @@ module.exports = function(opts) {
 					width: res.info.width,
 					height: res.info.height,
 					data: [
-						'url(data:image/svg+xml;utf8,',
+						'url(data:image/svg+xml;charset=utf8,',
 						encodeURIComponent(res.data),
 						')'
 					].join(''),
