@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var imgParser = require('imagesize').Parser;
+var sizeOf = require('image-size');
 var mustache = require('mustache');
 var through = require('through');
 var gutil = require('gulp-util');
@@ -14,26 +14,25 @@ module.exports = function(opts) {
 	var svgs = [];
 
 	var bufferContents = function(file) {
-		var parser = new imgParser();
 		var type = mime.lookup(file.path);
-		var imgData;
+		var dim = sizeOf(file.path);
 
-		if(type !== 'image/svg+xml' && parser.parse(file.contents) === imgParser.DONE) {
-			imgData = parser.getResult();
-			imgData.data = [
+		if(type !== 'image/svg+xml') {
+			// console.log(imgData, dim);
+			dim.data = [
 				'url(data:',
-				mime.lookup(imgData.format),
+				mime.lookup(dim.type),
 				';base64,',
 				file.contents.toString('base64'),
 				')'
 			].join('');
-			imgData.name = path.basename(file.path, '.' + imgData.format);
-			buffer.push(imgData);
+			dim.name = path.basename(file.path, '.' + dim.type);
+			buffer.push(dim);
 		} else if(type === 'image/svg+xml') {
 			svgo.optimize(file.contents.toString(), function(res) {
-				imgData = {
-					width: res.info.width,
-					height: res.info.height,
+				dim = {
+					width: dim.width,
+					height: dim.height,
 					data: [
 						'url(data:image/svg+xml;charset=utf8,',
 						encodeURIComponent(res.data),
@@ -42,7 +41,7 @@ module.exports = function(opts) {
 					format: 'svg',
 					name: path.basename(file.path, '.svg')
 				};
-				buffer.push(imgData);
+				buffer.push(dim);
 			});
 		}
 	};

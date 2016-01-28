@@ -26,9 +26,11 @@ describe('gulp-baseimg', function() {
 			var img1 = loadFile('./test/fixtures/icon1.png');
 			var img2 = loadFile('./test/fixtures/icon2.png');
 			var img3 = loadFile('./test/fixtures/icon3.svg');
+			var img4 = loadFile('./test/fixtures/icon4.svg');
 			var sizes = [
 				{width: '18px', height: '15px'},
 				{width: '18px', height: '15px'},
+				{width: '14px', height: '13px'},
 				{width: '14px', height: '13px'},
 			];
 
@@ -37,7 +39,7 @@ describe('gulp-baseimg', function() {
 
 				describe('css', function() {
 					it('should have right selectors', function() {
-						for(var i = 0; i < 3; i += 1) {
+						for(var i = 0; i < 4; i += 1) {
 							should(testCssSelector(css.rules[i], '.icon' + (i + 1))).be.ok;
 						}
 					});
@@ -57,6 +59,7 @@ describe('gulp-baseimg', function() {
 			stream.write(img1);
 			stream.write(img2);
 			stream.write(img3);
+			stream.write(img4);
 			stream.end();
 		});
 	});
