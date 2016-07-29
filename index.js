@@ -8,6 +8,12 @@ var mime = require('mime');
 var SVGO = require('svgo');
 var svgo = new SVGO();
 
+function strictEncodeURIComponent(str) {
+	return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+		return '%' + c.charCodeAt(0).toString(16);
+	});
+}
+
 module.exports = function(opts) {
 	var tpl = fs.readFileSync(opts.styleTemplate).toString();
 	var buffer = [];
@@ -35,7 +41,7 @@ module.exports = function(opts) {
 					height: dim.height,
 					data: [
 						'url(data:image/svg+xml;charset=utf8,',
-						encodeURIComponent(res.data),
+						strictEncodeURIComponent(res.data),
 						')'
 					].join(''),
 					format: 'svg',
