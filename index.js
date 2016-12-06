@@ -18,8 +18,8 @@ module.exports = function(opts) {
 	var tpl = fs.readFileSync(opts.styleTemplate).toString();
 	var buffer = [];
 	var svgs = [];
-	var prefix = opts.prefix || 'url(';
-	var sufix = opts.sufix || ')';
+	var prefix = opts.prefix !== undefined ?  opts.prefix : 'url(';
+	var sufix = opts.sufix !== undefined ?  opts.sufix : ')';
 
 	var bufferContents = function(file) {
 		var type = mime.lookup(file.path);
