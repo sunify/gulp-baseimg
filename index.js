@@ -18,6 +18,8 @@ module.exports = function(opts) {
 	var tpl = fs.readFileSync(opts.styleTemplate).toString();
 	var buffer = [];
 	var svgs = [];
+	var prefix = opts.prefix || 'url(';
+	var sufix = opts.sufix || ')';
 
 	var bufferContents = function(file) {
 		var type = mime.lookup(file.path);
@@ -26,11 +28,11 @@ module.exports = function(opts) {
 		if(type !== 'image/svg+xml') {
 			// console.log(imgData, dim);
 			dim.data = [
-				'url(data:',
+				prefix + 'data:',
 				mime.lookup(dim.type),
 				';base64,',
 				file.contents.toString('base64'),
-				')'
+				sufix
 			].join('');
 			dim.name = path.basename(file.path, '.' + dim.type);
 			buffer.push(dim);
@@ -40,9 +42,9 @@ module.exports = function(opts) {
 					width: dim.width,
 					height: dim.height,
 					data: [
-						'url(data:image/svg+xml;charset=utf8,',
+						prefix + 'data:image/svg+xml;charset=utf8,',
 						strictEncodeURIComponent(res.data),
-						')'
+						sufix
 					].join(''),
 					format: 'svg',
 					name: path.basename(file.path, '.svg')
