@@ -3,7 +3,7 @@ var path = require('path');
 var sizeOf = require('image-size');
 var mustache = require('mustache');
 var through = require('through');
-var gutil = require('gulp-util');
+var Vinyl = require('vinyl');
 var mime = require('mime');
 var SVGO = require('svgo');
 var svgo = new SVGO();
@@ -55,7 +55,7 @@ module.exports = function(opts) {
 	};
 
 	var endStream = function() {
-		this.emit('data', new gutil.File({
+		this.emit('data', new Vinyl({
 			  contents: new Buffer(mustache.render(tpl, {
 				  items: buffer
 			  }), 'utf8'),

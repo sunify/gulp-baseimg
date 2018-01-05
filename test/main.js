@@ -1,12 +1,12 @@
 var baseimg = require('../');
-var gutil = require('gulp-util');
+var Vinyl = require('vinyl');
 var should = require('should');
 var fs = require('fs');
 var postcss = require('postcss');
 require('mocha');
 
 var loadFile = function(path) {
-	return new gutil.File({
+	return new Vinyl({
 		path: path,
 		contents: fs.readFileSync(path)
 	});
